@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.graph_objects as go
+# import plotly.graph_objects as go
 
 st.title("Analysis of Top 50 Transfers in Football")
 st.markdown("""
@@ -81,24 +81,24 @@ if(st.button('Bar Chart')):
     transferYear = transferStats.groupby(['Transfer year'])['Fee in €(mln)'].sum()
     st.bar_chart(transferYear)
 
-if(st.button('Pie Chart')):
-    st.header('Pie chart')
-    total = df['Fee in €(mln)'].sum()
-    forward = (df.query("Position == 'Forward'")['Fee in €(mln)'].sum()/total)
-    midfielder = (df.query("Position == 'Midfielder'")
-              ['Fee in €(mln)'].sum()/total)
-    defender = (df.query("Position == 'Defender'")['Fee in €(mln)'].sum()/total)
-    gk = (df.query("Position == 'Goalkeeper'")['Fee in €(mln)'].sum()/total)
-    data = [forward, midfielder, defender, gk]
-    labels = ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']
-    fig = go.Figure(
-        go.Pie(
-            labels=labels,
-            values=data,
-            hoverinfo="label+percent",
-            textinfo="value"
-        ))
-    st.plotly_chart(fig)
+# if(st.button('Pie Chart')):
+#     st.header('Pie chart')
+#     total = df['Fee in €(mln)'].sum()
+#     forward = (df.query("Position == 'Forward'")['Fee in €(mln)'].sum()/total)
+#     midfielder = (df.query("Position == 'Midfielder'")
+#               ['Fee in €(mln)'].sum()/total)
+#     defender = (df.query("Position == 'Defender'")['Fee in €(mln)'].sum()/total)
+#     gk = (df.query("Position == 'Goalkeeper'")['Fee in €(mln)'].sum()/total)
+#     data = [forward, midfielder, defender, gk]
+#     labels = ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']
+#     fig = go.Figure(
+#         go.Pie(
+#             labels=labels,
+#             values=data,
+#             hoverinfo="label+percent",
+#             textinfo="value"
+#         ))
+#     st.plotly_chart(fig)
 
 hide_st_style = """
             <style>
